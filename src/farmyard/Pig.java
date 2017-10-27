@@ -82,11 +82,7 @@ public class Pig {
   /** Turns this pig around, causing it to reverse direction. */
   protected void turnAround() {
     goingRight = !goingRight;
-    if (goingRight) {
-      appearance = reverseAppearance();
-    } else {
-      appearance = reverseAppearance();
-    }
+    appearance = reverseAppearance();
   }
 
   /**
