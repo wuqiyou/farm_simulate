@@ -1,6 +1,6 @@
 #########
-# Step 1
+# Step 2
 
-Code affected: none
+Code affected: all .java files
 
-Created this file.
+Reformatted using the Google Java style formatter.
