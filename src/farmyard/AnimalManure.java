@@ -3,7 +3,7 @@ package farmyard;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-public class ANIMAL_MANURE {
+public class AnimalManure {
 
   /** How this piece of feces appears on the screen. */
   private String appearance;
@@ -28,9 +28,9 @@ public class ANIMAL_MANURE {
    * @param x the x co-ordinate of the food's cursor location.
    * @param y the y co-ordinate of the food's cursor location.
    */
-  public ANIMAL_MANURE() {
+  public AnimalManure() {
     colour = Color.BLACK.darker().darker().darker();
-    appearance = ANIMAL_MANURE.manure_appearnce;
+    appearance = AnimalManure.manure_appearnce;
   }
 
   /**

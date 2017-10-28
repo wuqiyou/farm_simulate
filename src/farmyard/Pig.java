@@ -137,7 +137,7 @@ public class Pig {
   private final boolean clearStomach() {
     System.out.println("Pig stink");
 
-    ANIMAL_MANURE newManure = new ANIMAL_MANURE();
+    AnimalManure newManure = new AnimalManure();
     newManure.manure_appearnce = "*";
     newManure.setLocation(c, r);
 

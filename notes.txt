@@ -1,8 +1,8 @@
 #########
-# Step 3
+# Step 4
 
-Code affected: Pig.turnAround
+Code affected: AnimalManure
 
-Flaw: unnecessary if, leading to duplicate code.
+Flaw: Bad file name and class name
 
-Fix: replaced if statement with a single assignment statement.
+Fix: rename ANIMAL_MANURE to AnimalManure
