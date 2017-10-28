@@ -5,9 +5,9 @@ import javafx.scene.paint.Color;
 
 public class FarmItem {
     /** How this item appears on the screen. */
-    private String appearance;
+    protected String appearance;
     /** My colour. Ah, the vagaries of British vs. US spelling. */
-    private Color colour;
+    protected Color colour;
     /** The row number of this item's cursor location.*/
     protected int row;
     /** The column number of this item's cursor location.*/

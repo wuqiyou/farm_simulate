@@ -1,26 +1,14 @@
 package farmyard;
 
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-public class Chicken {
-  /** How this Chicken appears on the screen. */
-  String appearance;
-
+public class Chicken extends FarmItem {
   /** Indicates whether this Chicken is moving right. */
   boolean goingRight;
-
-  /** This Chicken's first coordinate. */
-  int r;
-  /** The colour of this Chicken. */
-  Color colour;
-  /** This Chicken's second coordinate. */
-  private int c;
-
   /** Constructs a new Chicken. */
+
   public Chicken() {
-    colour = Color.RED;
-    appearance = "/'/>";
+    super("/'/>", Color.RED);
     goingRight = true;
   }
 
@@ -30,17 +18,6 @@ public class Chicken {
       for (int c = 0; c != Human.myFarmAnimals[0].length; c++)
         if (Human.myFarmAnimals[r][c] instanceof Egg) return (Egg) Human.myFarmAnimals[r][c];
     return null;
-  }
-
-  /**
-   * Set this item's location.
-   *
-   * @param a the first coordinate.
-   * @param b the second coordinate.
-   */
-  public void setLocation(int a, int b) {
-    r = a;
-    c = b;
   }
 
   /** Build and initialize this Chicken's forward and backward appearances. */
@@ -97,28 +74,6 @@ public class Chicken {
     }
   }
 
-  /**
-   * Draws the given string in the given graphics context at at the given cursor location.
-   *
-   * @param g the graphics context in which to draw the string.
-   * @param s the string to draw.
-   * @param x the x-coordinate of the string's cursor location.
-   * @param y the y-coordinate of the string's cursor location.
-   */
-  void drawString(GraphicsContext g, String s, int x, int y) {
-    g.setFill(colour);
-    g.fillText(s, y * 10, x * 6);
-  }
-
-  /**
-   * Draws this farm pen item.
-   *
-   * @param g the graphics context in which to draw this item.
-   */
-  public void draw(GraphicsContext g) {
-    drawString(g, appearance, r, c);
-  }
-
   /** Causes this item to take its turn in the farm-pen simulation. */
   public void move() {
 
@@ -130,9 +85,9 @@ public class Chicken {
 
     // Move one spot to the right or left.
     if (goingRight) {
-      c += 1;
+      col += 1;
     } else {
-      c -= 1;
+      col -= 1;
     }
 
     // Every now and then lay an egg.
@@ -149,13 +104,11 @@ public class Chicken {
 
   /** Lay an egg. */
   private void layEgg() {
-    System.out.println("Breakfast! " + "Egg loc: " + c + " " + r);
-    int hereC = c;
-    int hereR = r;
+    System.out.println("Breakfast! " + "Egg loc: " + col + " " + row);
     Egg egg = new Egg();
-    egg.setLocation(hereC, hereR);
+    egg.setLocation(col, row);
 
-    Human.myFarmAnimals[hereC][hereR] = egg;
+    Human.myFarmAnimals[col][row] = egg;
   }
 
   /**
@@ -166,11 +119,10 @@ public class Chicken {
   private final boolean digest() {
     System.out.println("New stuff to make things grow.");
 
-    AnimalManure getTheScoop = new AnimalManure();
-    getTheScoop.manure_appearnce = ".";
-    getTheScoop.setLocation(c, r);
+    AnimalManure getTheScoop = new AnimalManure(".");
+    getTheScoop.setLocation(col, row);
 
-    Human.myFarmAnimals[r][c] = getTheScoop;
+    Human.myFarmAnimals[row][col] = getTheScoop;
 
     return true;
   }
