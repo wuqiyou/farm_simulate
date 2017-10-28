@@ -2,9 +2,7 @@ package farmyard;
 
 import javafx.scene.paint.Color;
 
-public class Chicken extends FarmItem {
-  /** Indicates whether this Chicken is moving right. */
-  boolean goingRight;
+public class Chicken extends MovableFarmItem {
   /** Constructs a new Chicken. */
 
   public Chicken() {
@@ -18,60 +16,6 @@ public class Chicken extends FarmItem {
       for (int c = 0; c != Human.myFarmAnimals[0].length; c++)
         if (Human.myFarmAnimals[r][c] instanceof Egg) return (Egg) Human.myFarmAnimals[r][c];
     return null;
-  }
-
-  /** Build and initialize this Chicken's forward and backward appearances. */
-  private String reverseAppearance() {
-    String reverse = "";
-    for (int i = appearance.length() - 1; i >= 0; i--) {
-      switch (appearance.charAt(i)) {
-        case '\\':
-          reverse += '/';
-          break;
-        case '/':
-          reverse += '\\';
-          break;
-        case ')':
-          reverse += '(';
-          break;
-        case '(':
-          reverse += ')';
-          break;
-        case '>':
-          reverse += '<';
-          break;
-        case '<':
-          reverse += '>';
-          break;
-        case '}':
-          reverse += '{';
-          break;
-        case '{':
-          reverse += '}';
-          break;
-        case '[':
-          reverse += ']';
-          break;
-        case ']':
-          reverse += '[';
-          break;
-        default:
-          reverse += appearance.charAt(i);
-          break;
-      }
-    }
-
-    return reverse;
-  }
-
-  /** Turns this fish around, causing it to reverse direction. */
-  protected void turnAround() {
-    goingRight = !goingRight;
-    if (goingRight) {
-      appearance = reverseAppearance();
-    } else {
-      appearance = reverseAppearance();
-    }
   }
 
   /** Causes this item to take its turn in the farm-pen simulation. */

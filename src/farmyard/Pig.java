@@ -2,7 +2,7 @@ package farmyard;
 
 import javafx.scene.paint.Color;
 
-public class Pig extends FarmItem {
+public class Pig extends MovableFarmItem {
 
   /** Indicates whether this Pig is moving right. */
   boolean goingRight;
@@ -11,56 +11,6 @@ public class Pig extends FarmItem {
   public Pig() {
     super(":(8)", Color.PINK.darker().darker().darker());
     goingRight = true;
-  }
-
-  /** Build and initialize this Pig's forward and backward appearances. */
-  private String reverseAppearance() {
-    String reverse = "";
-    for (int i = appearance.length() - 1; i >= 0; i--) {
-      switch (appearance.charAt(i)) {
-        case '\\':
-          reverse += '/';
-          break;
-        case '/':
-          reverse += '\\';
-          break;
-        case ')':
-          reverse += '(';
-          break;
-        case '(':
-          reverse += ')';
-          break;
-        case '>':
-          reverse += '<';
-          break;
-        case '<':
-          reverse += '>';
-          break;
-        case '}':
-          reverse += '{';
-          break;
-        case '{':
-          reverse += '}';
-          break;
-        case '[':
-          reverse += ']';
-          break;
-        case ']':
-          reverse += '[';
-          break;
-        default:
-          reverse += appearance.charAt(i);
-          break;
-      }
-    }
-
-    return reverse;
-  }
-
-  /** Turns this pig around, causing it to reverse direction. */
-  protected void turnAround() {
-    goingRight = !goingRight;
-    appearance = reverseAppearance();
   }
 
   /** Causes this item to take its turn in the farm-pen simulation. */

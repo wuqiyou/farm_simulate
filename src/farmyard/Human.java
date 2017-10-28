@@ -6,7 +6,7 @@ import javafx.scene.paint.Color;
 import java.util.ArrayList;
 
 /** A Human */
-public class Human extends FarmItem{
+public class Human extends MovableFarmItem {
 
   /** (int)(640/6) columns, (int)(480/10) rows. */
   public static Object[][] myFarmAnimals = new Object[(int) (480 / 10)][(int) (640 / 6)];
@@ -43,54 +43,6 @@ public class Human extends FarmItem{
     fooood = new AnimalFood();
     fooood.setLocation(col + 1, row + 1);
     myFarmAnimals[row + 1][col + 1] = fooood;
-  }
-
-  /** Build and initialize this human's forward and backward appearances. */
-  private String reverseAppearance() {
-    String reverse = "";
-    for (int i = appearance.length() - 1; i >= 0; i--) {
-      switch (appearance.charAt(i)) {
-        case ')':
-          reverse += '(';
-          break;
-        case '(':
-          reverse += ')';
-          break;
-        case '>':
-          reverse += '<';
-          break;
-        case '<':
-          reverse += '>';
-          break;
-        case '}':
-          reverse += '{';
-          break;
-        case '{':
-          reverse += '}';
-          break;
-        case '[':
-          reverse += ']';
-          break;
-        case ']':
-          reverse += '[';
-          break;
-        default:
-          reverse += appearance.charAt(i);
-          break;
-      }
-    }
-
-    return reverse;
-  }
-
-  /** Turns this human around, causing it to reverse direction. */
-  protected void turnAround() {
-    goingRight = !goingRight;
-    if (goingRight) {
-      appearance = reverseAppearance();
-    } else {
-      appearance = reverseAppearance();
-    }
   }
 
   /**
