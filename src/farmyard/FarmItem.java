@@ -4,14 +4,14 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 public class FarmItem {
-    /** How this Chicken appears on the screen. */
+    /** How this item appears on the screen. */
     private String appearance;
     /** My colour. Ah, the vagaries of British vs. US spelling. */
     private Color colour;
     /** The row number of this item's cursor location.*/
-    private int row;
+    protected int row;
     /** The column number of this item's cursor location.*/
-    private int col;
+    protected int col;
 
     public FarmItem(String appearance, Color colour){
         this.appearance = appearance;
