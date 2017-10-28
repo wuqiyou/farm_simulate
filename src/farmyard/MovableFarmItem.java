@@ -22,45 +22,46 @@ public class MovableFarmItem extends FarmItem{
 
     /** Build and initialize this Pig's forward and backward appearances. */
     private String reverseAppearance() {
-        String reverse = "";
+        StringBuilder reverse = new StringBuilder();
         for (int i = appearance.length() - 1; i >= 0; i--) {
-            switch (appearance.charAt(i)) {
+            char current = appearance.charAt(i);
+            switch (current) {
                 case '\\':
-                    reverse += '/';
+                    current = '/';
                     break;
                 case '/':
-                    reverse += '\\';
+                    current = '\\';
                     break;
                 case ')':
-                    reverse += '(';
+                    current = '(';
                     break;
                 case '(':
-                    reverse += ')';
+                    current = ')';
                     break;
                 case '>':
-                    reverse += '<';
+                    current = '<';
                     break;
                 case '<':
-                    reverse += '>';
+                    current = '>';
                     break;
                 case '}':
-                    reverse += '{';
+                    current = '{';
                     break;
                 case '{':
-                    reverse += '}';
+                    current = '}';
                     break;
                 case '[':
-                    reverse += ']';
+                    current = ']';
                     break;
                 case ']':
-                    reverse += '[';
+                    current = '[';
                     break;
                 default:
-                    reverse += appearance.charAt(i);
                     break;
             }
+            reverse.append(current);
         }
 
-        return reverse;
+        return reverse.toString();
     }
 }

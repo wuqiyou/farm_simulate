@@ -16,11 +16,6 @@ import javafx.util.Duration;
 /** Our take on the "classical" game Farm Ville */
 public class Main extends Application {
 
-  /** The width of a character. */
-  public static final int charWidth = 6;
-  /** The height of a character. */
-  public static final int charHeight = 10;
-
   public static void main(String[] args) {
     launch(args);
   }
@@ -113,23 +108,7 @@ public class Main extends Application {
     for (int a = 0; a != (int) (480 / 10); a++) {
       for (int b = 0; b != (int) (640 / 6); b++) {
         if (Human.myFarmAnimals[a][b] != null) {
-
-          if (Human.myFarmAnimals[a][b] instanceof Chicken) {
-
-            ((Chicken) Human.myFarmAnimals[a][b]).draw(gc);
-          } else if (Human.myFarmAnimals[a][b] instanceof Pig) {
-            ((Pig) Human.myFarmAnimals[a][b]).draw(gc);
-          } else if (Human.myFarmAnimals[a][b] instanceof Human) {
-            ((Human) Human.myFarmAnimals[a][b]).draw(gc);
-          } else if (Human.myFarmAnimals[a][b] instanceof AnimalManure) {
-            ((AnimalManure) Human.myFarmAnimals[a][b]).draw(gc);
-          }
-          if (Human.myFarmAnimals[a][b] instanceof AnimalFood) {
-            ((AnimalFood) Human.myFarmAnimals[a][b]).draw(gc);
-          }
-          if (Human.myFarmAnimals[a][b] instanceof Egg) {
-            ((Egg) Human.myFarmAnimals[a][b]).draw(gc);
-          }
+          ((FarmItem) Human.myFarmAnimals[a][b]).draw(gc);
         }
       }
     }
