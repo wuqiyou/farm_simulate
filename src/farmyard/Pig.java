@@ -4,13 +4,9 @@ import javafx.scene.paint.Color;
 
 public class Pig extends MovableFarmItem {
 
-  /** Indicates whether this Pig is moving right. */
-  boolean goingRight;
-
   /** Constructs a new Pig. */
   public Pig() {
     super(":(8)", Color.PINK.darker().darker().darker());
-    goingRight = true;
   }
 
   /** Causes this item to take its turn in the farm-pen simulation. */

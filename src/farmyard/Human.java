@@ -10,8 +10,6 @@ public class Human extends MovableFarmItem {
 
   /** (int)(640/6) columns, (int)(480/10) rows. */
   public static Object[][] myFarmAnimals = new Object[(int) (480 / 10)][(int) (640 / 6)];
-  /** Indicates whether this human is moving right. */
-  boolean goingRight;
 
   private ArrayList<Egg> myBasket = new ArrayList<Egg>();
 
@@ -23,7 +21,6 @@ public class Human extends MovableFarmItem {
   /** Constructs a new Human. */
   public Human() {
     super("human", Color.SANDYBROWN.darker());
-    goingRight = true;
   }
 
   /** Causes human to drop down 4 piece s of food all around. */

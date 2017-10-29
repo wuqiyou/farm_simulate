@@ -8,6 +8,7 @@ public class MovableFarmItem extends FarmItem{
 
     public MovableFarmItem(String appearance, Color colour){
         super(appearance, colour);
+        goingRight = true;
     }
 
     public void move() {

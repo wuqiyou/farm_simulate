@@ -59,7 +59,10 @@ public class Main extends Application {
     Human.myFarmAnimals[30][30] = new Human();
     ((Human) Human.myFarmAnimals[30][30]).setLocation(30, 30);
 
-    drawShapes(gc);
+      Human.myFarmAnimals[40][100] = new Human();
+      ((Human) Human.myFarmAnimals[40][100]).setLocation(40, 100);
+
+      drawShapes(gc);
 
     Timeline gameLoop = new Timeline();
     gameLoop.setCycleCount(Timeline.INDEFINITE);

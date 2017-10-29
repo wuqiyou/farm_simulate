@@ -7,7 +7,6 @@ public class Chicken extends MovableFarmItem {
 
   public Chicken() {
     super("/'/>", Color.RED);
-    goingRight = true;
   }
 
   /** Set this item's location. */
